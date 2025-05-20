@@ -1,0 +1,210 @@
+h1 {
+    /* 让 h1 字体变粗 */
+    font-weight: 700px; 
+    /* 也可以使用具体数值，例如 700 */
+    /* font-weight: 700; */
+}
+
+body {
+    /* 设置上下 padding 为 37.500px，左右 padding 保持默认值 0 */
+    padding: 37.500px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 让子元素水平居中 */
+    justify-content: flex-start; /* 让子元素垂直方向从顶部开始排列 */
+    min-height: 100vh;
+    margin: 0;
+}
+
+.centered-title {
+    font-weight: 700; /* 让字体变细 */
+    text-align: center; /* 让文本在元素内居中 */
+    font-size:50px;
+}
+
+.centered-subtitle {
+    margin-top: 10px; 
+    /* 设置字体变细 */
+    font-weight: lighter; 
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 35.156px;
+    /* 增大字体大小，可根据需求调整数值 */
+    font-size: 32px; 
+    line-height: 1.5; 
+    padding: 0 30px 35.156px 30px;
+}
+
+.stanford-link {
+    padding: 10px 22.500px 12.500px 22.500px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    color: white; 
+    background-color: rgb(180, 3, 3);
+    transition: background-color 0.3s linear;
+    font-weight: bold; 
+    font-size: 18px; 
+    display: inline-block;
+    /* 增大宽度，这里设置为 400px */
+    width: 400px; 
+    text-align: center; 
+}
+
+.stanford-link:hover {
+    background-color: #7e0202; 
+}
+header {
+    /* 设置上、右、下、左的 padding 值 */
+    padding: 30px 74.328px 22.500px 74.328px;
+}
+header p {
+    /* 可以根据需要调整字体大小，这里设置为 18px */
+    font-size: 25px; 
+}
+.image-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.image-text-container p {
+    /* 可根据需要调整段落的样式 */
+    margin-bottom: 10px;
+}
+
+.image-style {
+    /* 选中 .landscape 下的第一张图片 */
+    .landscape img:first-of-type {
+        width: 573.33px;
+        height: 347.14px;
+        /* 确保图片按比例缩放并覆盖容器 */
+        object-fit: cover; 
+    }
+    padding-top: 286.656px;
+    object-fit: cover;
+    margin: 0 0 20px 20px;
+}
+
+.below-image-text {
+    text-align: center; /* 文字居中 */
+    margin: 10px 0; /* 上下边距 */
+}
+
+/* 修改 .landscape 样式，移除相对定位，让其遵循正常文档流 */
+.landscape {
+    margin: 0; /* 移除默认边距 */
+}
+
+/* 调整图片样式，使其定位到左上方，设置左外边距和下外边距 */
+.landscape img {
+    display: block; /* 将图片设置为块级元素，方便布局 */
+    margin-left: 20px; /* 左外边距设置为 20px */
+    margin-bottom: 20px; /* 下外边距设置为 20px */
+    margin-top: 0; /* 上外边距为 0 */
+}
+
+.overlay-text {
+    position: absolute; /* 绝对定位，相对于父元素 .landscape 定位 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+    color: white; /* 文字颜色 */
+    font-size: 18px; /* 文字大小 */
+    font-weight: bold; /* 文字加粗 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字阴影，增强可读性 */
+    z-index: 1; /* 确保文字显示在图片上方 */
+    text-align: center; /* 文字居中对齐 */
+}
+
+/* 选择所有图片元素，设置过渡效果 */
+.landscape img {
+    transition: transform 0.1s ease; /* 0.3s 为过渡时间，ease 为过渡函数 */
+}
+
+/* 鼠标悬停时，让图片放大 1.1 倍 */
+.landscape img:hover {
+    transform: scale(1.05); 
+}
+
+/* 让第一个 .landscape 成为相对定位容器，用于绝对定位文字 */
+.landscape:first-of-type {
+    position: relative;
+    margin: 0;
+}
+
+/* 设置第一张图片的宽高 */
+.landscape:first-of-type img {
+    width: 573.33px;
+    height: 347.14px;
+    /* 确保图片覆盖容器，防止变形 */
+    object-fit: cover; 
+}
+
+/* 定位第一张图片上的覆盖文字 */
+.landscape:first-of-type .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    text-align: center;
+}
+
+.landscape {
+    position: relative;
+    margin: 0;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.overlay-text .post-category {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.overlay-text h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.overlay-text h3 a {
+    color: white;
+    text-decoration: none;
+}
+
+.overlay-text h3 a:hover {
+    text-decoration: underline;
+}
+
+.news-link-box {
+    padding: 10px 22.500px 12.500px 22.500px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    color: white; 
+    background-color: rgb(180, 3, 3);
+    transition: background-color 0.3s linear;
+    font-weight: bold; 
+    font-size: 18px; 
+    display: inline-block;
+    /* 增大宽度，这里设置为 400px */
+    width: 400px; 
+    text-align: center; 
+}
+
+.news-link-box:hover {
+    background-color: #7e0202; 
+    color: white; 
+}
