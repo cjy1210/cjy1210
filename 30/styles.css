@@ -1,0 +1,279 @@
+/* 根据视口大小动态调整基础字体大小 */
+html {
+    font-size: calc(10px + 0.3vw);
+}
+
+/* 消除 <a> 标签默认样式 */
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-size: 1rem;
+}
+
+/* 图示区域样式 */
+.mission-statement {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #fff; /* 背景颜色 */
+}
+
+/* 为顶部区域创建专门的容器类 */
+.mission-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;              
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.mission-statement h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000; /* 标题颜色 */
+}
+
+.mission-statement p {
+    font-size: 1.65rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #333; /* 段落颜色 */
+    font-weight: 300px;
+}
+
+.mission-statement .btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #b80404; /* 按钮背景颜色 */
+    border: none;
+    text-transform: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    padding: 15px 100px;
+}
+
+.mission-statement .btn:hover {
+    background-color: #660e06; /* 悬停时按钮背景颜色 */
+}
+
+/* 说明板块样式 */
+.campus-news {
+    background-color: #f9f9f9; /* 背景颜色 */              
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.campus-news .container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.campus-news h2,
+.campus-news p {
+    margin: 1rem 0;
+    display: block;
+}
+
+.campus-news h2 {
+    font-size: 2.2rem;
+    color: #000; /* 标题颜色 */
+}
+
+.campus-news p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #333; /* 段落颜色 */
+}
+
+/* 内容网格容器 */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.content-block,        
+.content-block-third {
+    background: white;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 前两个盒子各占四分之一 */
+.content-block {
+    grid-column: span 1;
+}
+
+/* 第三个盒子占二分之一 */
+.content-block-third {
+    grid-column: span 2;
+    position: relative;
+    color: white;
+    background: none;
+}
+
+/* 图片通用样式 */
+.content-block img,
+.content-block-third img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+/* 文字区域样式 */
+.content-text {
+    padding: 1rem;
+}
+
+.content-text h3 {
+    margin: 0;
+    color: #7d1307;
+    font-size: 1.2rem;
+}
+
+.content-text p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: normal;
+    color: inherit;
+}
+
+/* 第三个盒子文字压图样式 */
+.content-block-third .content-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.5rem;
+    z-index: 2;
+    background: transparent;
+    color: white !important;
+}
+
+.content-block-third::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 1;
+}
+
+.pic {
+    overflow: hidden;
+}
+
+/* 鼠标悬停：前两个盒子 */
+.content-block:not(.content-block-third):hover img {
+    transform: scale(1.02);
+}
+
+.content-block:not(.content-block-third):hover .content-text p {
+    color: rgb(64, 114, 231);
+}
+
+.content-block:not(.content-block-third):hover {
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+/* 鼠标悬停：第三个盒子 */
+.content-block-third:hover img {
+    transform: scale(1.02);
+}
+
+.content-block-third:hover {
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+/* 第三个盒子的文字始终为白色，不受悬停影响 */
+.content-block-third .content-text,
+.content-block-third .content-text h3,
+.content-block-third .content-text p {
+    color: white !important;
+}
+
+/* 前两个盒子的图片和文字结构 */
+.content-block .pic {
+    flex: 1;
+}
+
+.content-block .content-text {
+    flex: 0 0 auto;
+    padding: 0.5rem 1rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .content-block,
+    .content-block-third {
+        grid-column: span 1;
+    }
+
+    .content-block-third {
+        position: static;
+    }
+
+    .content-block-third .content-text {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        padding: 1rem;
+    }
+}
+
+/* 新增：页脚链接居中及悬停样式 */
+footer {
+    text-align: center;  /* 关键：设置容器内容水平居中 */
+    padding: 1.5rem 0;   /* 调整上下内边距优化间距 */
+}
+
+footer .footer-news-link {
+    color: #ffffff;       
+    text-decoration: none; 
+    font-weight: 600;     
+    transition: color 0.3s ease; 
+    background-color: #b80404;
+    padding: 15px 100px; /* 新增：增大内边距（上下12px，左右24px）使方框变大 */
+    font-size: 1.5rem;
+}
+
+footer .footer-news-link:hover {
+    background-color: #7d0101;       
+}
+
+
+
+
+
